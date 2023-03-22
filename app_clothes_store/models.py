@@ -1,5 +1,6 @@
 import datetime
 
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils import timezone
 from django.contrib import admin
@@ -8,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 class Cloth(models.Model):
     name_of_cloth = models.CharField(max_length=200)
-    path_to_image = models.CharField(max_length=200)
+    path_to_image = ArrayField(models.CharField(max_length=200))
     price = models.FloatField
 
     class Size(models.TextChoices):
@@ -21,7 +22,6 @@ class Cloth(models.Model):
 
     def __str__(self):
         return self.name_of_cloth
-
 
 # class Question(models.Model):
 #     question_text = models.CharField(max_length=200)

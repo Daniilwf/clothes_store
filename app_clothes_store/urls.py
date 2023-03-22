@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     # ex: /polls/
-    path('', views.load_name, name='index'),
+    path('', views.upload_file, name='load_name'),
+
 ]
