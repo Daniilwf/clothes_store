@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<body>
+<div class="main-content">
+    <div class="container">
+
+
+        <div class="container">
+            <div class="row">
+
+                <div class="box">
+                    <div class="box-content">
+                        <div class="col-md-12">
+                            <form method="post" id="fileupload" action="/helpsubmitfilecontent/" accept-charset="utf-8" class="fill-up" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-lg-4">
+
+                                        <ul class="padded separate-sections">
+                                            <li>
+                                                <label for="name"></label><input type="text" name="name" id="name" placeholder="Name"/>
+                                            </li>
+
+                                            <li>
+                                                <label for="content"></label><textarea name="content" id="content"
+                                                                                       placeholder="Help Contents" style="height: 250px;width: 700px"></textarea>
+                                            </li>
+                                           <li>
+                                                <input type="file" name="myfile" id="myfile" />
+
+                                           </li>
+                                        </ul>
+
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-blue">Submit</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+    $('#fileupload').submit(function(evnt){
+       if($('#name').val().length <=0){
+           $('#name').attr('style','border-color:red');
+           evnt.preventDefault();
+       }
+       if($('#content').val().length <=0){
+           $('#content').attr('style','border-color:red');
+           evnt.preventDefault();
+       }
+    });
+
+</script>
+</html>

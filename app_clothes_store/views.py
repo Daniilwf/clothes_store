@@ -12,8 +12,6 @@ def load_name(request):
 
 
 def upload_file(request):
-    latest_cloth_list = Cloth.objects.all()
-    request.FILES = latest_cloth_list[0].path_to_image
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
@@ -25,6 +23,6 @@ def upload_file(request):
 
 
 def handle_uploaded_file(f):
-    with open('some/file/name.txt', 'wb+') as destination:
+    with open('cloth/image/sweater_red.jpg', 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
