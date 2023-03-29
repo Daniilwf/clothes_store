@@ -1,8 +1,6 @@
 from django.http import HttpResponse
 from .models import Cloth
-from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .forms import UploadFileForm
 
 
 def load_name(request):
@@ -11,18 +9,9 @@ def load_name(request):
     return HttpResponse(output)
 
 
-def upload_file(request):
-    if request.method == 'POST':
-        form = UploadFileForm(request.POST, request.FILES)
-        if form.is_valid():
-            handle_uploaded_file(request.FILES['file'])
-            return HttpResponseRedirect('/success/url/')
-    else:
-        form = UploadFileForm()
-    return render(request, 'upload.html', {'form': form})
-
-
-def handle_uploaded_file(f):
-    with open('cloth/image/sweater_red.jpg', 'wb+') as destination:
-        for chunk in f.chunks():
-            destination.write(chunk)
+def display_images(request):
+    # getting all the objects of hotel.
+    allimages = Cloth.objects.all()
+    print(allimages)
+    data = {"Cloth": allimages}
+    return render(request, 'image.html', context=data)
