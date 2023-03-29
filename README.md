@@ -1,5 +1,5 @@
 # clothes_store
-В консоль введите
+В консоль введите\n
 pip install django
 pip install psycopg2
 py manage.py makemigration
