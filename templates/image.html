@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Django Display Images</title>
+    <title>Cloths</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
@@ -10,19 +10,21 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Title</th>
-            <th>Image</th>
+            <th>Clothes Store</th>
         </tr>
         </thead>
         <tbody>
         {% for cloth in Cloth %}
             <tr>
                 <td>{{ cloth.name_of_cloth }}</td>
+                <td>{{ cloth.size }}</td>
                 <td>
                     {% for images in cloth.path_to_image %}
                         <img src="/{{ BASE_DIR }}cloth_image/{{ images }}" width="120" alt=""/>
                     {% endfor %}
                 </td>
+                <td>{{ cloth.price }}</td>
+                <td>{{ cloth.in_stock }}</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Django Display Images</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-$END$
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ client_form.as_p }}
+        <button type="submit">Save changes</button>
+    </form>
 </body>
 </html>
