@@ -1,0 +1,16 @@
+{% extends 'main/about.html' %}
+
+{% block title %} пост {% endblock %}
+
+
+{% block content %}
+    <div class="features">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.name_of_cloth }}</p>
+        <p>{{ post.path_to_image }}</p>
+        <p>{{ post.size }}</p>
+
+    </div>
+
+
+{% endblock %}

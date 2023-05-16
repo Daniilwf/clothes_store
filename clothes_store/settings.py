@@ -84,8 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'clothes_store_cloth',
-        'USER': 'hostpython',
-        'PASSWORD': '123',
+        'USER': 'postgres',
+        'PASSWORD': 'Sabaka000',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -112,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 

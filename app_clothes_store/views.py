@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from .models import Cloth
 from django.shortcuts import render
+from django.views.generic import DetailView
 
 
 def load_name(request):
@@ -15,3 +16,18 @@ def display_images(request):
     print(allimages)
     data = {"Cloth": allimages}
     return render(request, 'image.html', context=data)
+
+class NewClothes_store(DetailView):
+    model = Cloth.objects.all()
+    templates_name = 'main/details_views.html'
+    context_object_name = 'post'
+
+def get_queryset(self):
+    return super().get_queryset().filter()
+
+def about(request):
+    return render(request, 'about.html')
+
+
+def contact(request):
+    return render(request, 'contact.html')
