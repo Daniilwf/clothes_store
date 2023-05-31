@@ -1,9 +1,13 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Django Display Images</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
 <body>
 <div class="container">
@@ -21,6 +25,8 @@
                 <td>
                     {% for images in cloth.path_to_image %}
                         <img src="/{{ BASE_DIR }}cloth_image/{{ images }}" width="120" alt=""/>
+                        <a href="{% url 'about' %}" class="btn btn-danger">кнопка</a>
+
                     {% endfor %}
                 </td>
             </tr>
