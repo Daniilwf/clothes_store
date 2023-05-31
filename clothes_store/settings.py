@@ -38,12 +38,15 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app_clothes_store.apps.AppClothesStoreConfig',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles'
+
 ]
 
 MIDDLEWARE = [
@@ -129,3 +132,23 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = '/'
+
+
+RECAPTCHA_PUBLIC_KEY = "6Lct1ikmAAAAAJyzNVDatp0jxK3dZkqgTItDmq8s"
+RECAPTCHA_PRIVATE_KEY = "6Lct1ikmAAAAADqM7bQLC16p24zTnS4SW9z7_-Ij"
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_SCORE_THRESHOLD = 0.5
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST_USER = 'vovochka_vladimir_2024@bk.ru'
+EMAIL_HOST_PASSWORD = 'VcVUtPKTpLHvUEtCnqxp'
+DEFAULT_FROM_EMAIL = 'vovochka_vladimir_2024@bk.ru'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True

@@ -25,6 +25,7 @@
                 <td>
                     {% for images in cloth.path_to_image %}
                         <img src="/{{ BASE_DIR }}cloth_image/{{ images }}" width="120" alt=""/>
+                        <a href="{% url 'about' %}" class="btn btn-danger">кнопка</a>
 
                     {% endfor %}
                 </td>
