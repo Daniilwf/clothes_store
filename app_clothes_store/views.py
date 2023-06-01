@@ -18,10 +18,10 @@ def load_name(request):
 
 def display_images(request):
     # getting all the objects of hotel.
-    allimages = Cloth.objects.all()
-    print(allimages)
-    data = {"Cloth": allimages}
-    return render(request, 'image.html', context=data)
+    cloth_with_discount = Cloth.objects.filter(price_with_discount__range=(1, 10000000))
+    cloth = Cloth.objects.filter(price_with_discount=0)
+    data = {"cloth_with_discount": cloth_with_discount, "cloth": cloth}
+    return render(request, 'Главная.html', context=data)
 
 
 class NewClothesStore(DetailView):
@@ -35,7 +35,7 @@ def get_queryset(self):
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'О-нас.html')
 
 
 def contact(request):
@@ -86,7 +86,6 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'register.html', context)
-
 
 
 def login(request):

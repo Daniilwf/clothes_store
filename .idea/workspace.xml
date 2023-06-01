@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9142ead7-0ae0-4a10-a5e1-cb6fbf7bb273" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app_clothes_store/EmeilBackend.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_clothes_store/EmeilBackend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_clothes_store/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_clothes_store/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_clothes_store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_clothes_store/urls.py" afterDir="false" />
+    <list default="true" id="592ad12d-9507-4d12-b648-eefcd9430cc0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_clothes_store/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_clothes_store/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_clothes_store/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_clothes_store/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_clothes_store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_clothes_store/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clothes_store/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/clothes_store/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clothes_store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/clothes_store/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/details_views.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/details_views.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/image.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/image.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,19 +32,28 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2PDFURZNYahM3k3YhgeYs018o6K" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;urls__create&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "urls__create",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Honor\PycharmProjects\clothes_store\app_clothes_store\static\css" />
+      <recent name="C:\Users\Honor\PycharmProjects\clothes_store\app_clothes_store\static" />
       <recent name="C:\Users\user\PycharmProjects\clothes_store\app_clothes_store\static" />
       <recent name="C:\Users\user\PycharmProjects\clothes_store\templates" />
       <recent name="C:\Users\user\PycharmProjects\clothes_store\clothes_store\templates\main" />
