@@ -93,7 +93,8 @@
                         <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Главная.html">Главная</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="О-нас.html">О нас</a>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'about' %}">О
+                                нас</a>
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="скидки.html">Скидки</a>
                             </li>
@@ -160,56 +161,22 @@
         <div class="u-expanded-width u-list u-list-1">
             <div class="u-repeater u-repeater-1">
                 <div class="u-container-style u-list-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-container-layout-1">
-                        <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="900"
-                             data-image-height="1200"
-                             src="/{{ BASE_DIR }}cloth_image/{{ cloth_with_discount.0.path_to_image.0 }}">
-                        <h3 class="u-text u-text-default u-text-2">{{ cloth_with_discount.0.name_of_cloth }}</h3>
-                        <p class="u-text u-text-3">{{ cloth_with_discount.0.description }} </p>
-                        <h6 class="u-text u-text-default u-text-palette-2-base u-text-4">Новая цена</h6>
-                        <p class="u-text u-text-palette-2-base u-text-5">{{ cloth_with_discount.0.price_with_discount }}&nbsp;</p>
-                        <h6 class="u-text u-text-6">Старая цена</h6>
-                        <p class="u-text u-text-7"> {{ cloth_with_discount.0.price }} &nbsp;</p>
-                    </div>
-                </div>
-                <div class="u-container-style u-list-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-container-layout-2">
-                        <img alt="" class="u-expanded-width u-image u-image-default u-image-2" data-image-width="900"
-                             data-image-height="1200"
-                             src="/{{ BASE_DIR }}cloth_image/{{ cloth_with_discount.1.path_to_image.0 }}">
-                        <h3 class="u-text u-text-default u-text-8">{{ cloth_with_discount.1.name_of_cloth }}</h3>
-                        <p class="u-text u-text-9"> {{ cloth_with_discount.1.description }}</p>
-                        <h6 class="u-text u-text-default u-text-palette-2-base u-text-10">Новая цена</h6>
-                        <p class="u-text u-text-palette-2-base u-text-11">{{ cloth_with_discount.1.price_with_discount }}</p>
-                        <h6 class="u-text u-text-12">Старая цена</h6>
-                        <p class="u-text u-text-13">{{ cloth_with_discount.1.price }}</p>
-                    </div>
-                </div>
-                <div class="u-container-style u-list-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-container-layout-3">
-                        <img alt="" class="u-expanded-width u-image u-image-default u-image-3" data-image-width="246"
-                             data-image-height="328"
-                             src="/{{ BASE_DIR }}cloth_image/{{ cloth_with_discount.2.path_to_image.0 }}">
-                        <h3 class="u-text u-text-default u-text-14">{{ cloth_with_discount.2.name_of_cloth }}</h3>
-                        <p class="u-text u-text-15">{{ cloth_with_discount.2.description }}</p>
-                        <h6 class="u-text u-text-default u-text-palette-2-base u-text-16">Новая цена</h6>
-                        <p class="u-text u-text-palette-2-base u-text-17">{{ cloth_with_discount.2.price_with_discount }}</p>
-                        <h6 class="u-text u-text-18">Старая цена</h6>
-                        <p class="u-text u-text-19">{{ cloth_with_discount.2.price }}</p>
-                    </div>
-                </div>
-                <div class="u-container-style u-list-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-container-layout-4">
-                        <img alt="" class="u-expanded-width u-image u-image-default u-image-4" data-image-width="900"
-                             data-image-height="1200"
-                             src="/{{ BASE_DIR }}cloth_image/{{ cloth_with_discount.3.path_to_image.0 }}">
-                        <h3 class="u-text u-text-default u-text-20">{{ cloth_with_discount.3.name_of_cloth }}&nbsp;</h3>
-                        <p class="u-text u-text-21">{{ cloth_with_discount.3.description }}</p>
-                        <h6 class="u-text u-text-default u-text-palette-2-base u-text-22">Новая цена</h6>
-                        <p class="u-text u-text-palette-2-base u-text-23">{{ cloth_with_discount.3.price_with_discount }}</p>
-                        <h6 class="u-text u-text-24">Старая цена</h6>
-                        <p class="u-text u-text-25">{{ cloth_with_discount.3.price }}</p>
-                    </div>
+                    {% for cloth in cloth_with_discount %}
+                        <div class="u-container-layout u-similar-container u-container-layout-1"><a
+                                href="{% url 'mass-detail' cloth.id %}">
+                            <img alt="" class="u-expanded-width u-image u-image-default u-image-1"
+                                 data-image-width="900"
+                                 data-image-height="1200"
+                                 src="/{{ BASE_DIR }}cloth_image/{{ cloth.path_to_image.0 }}"> </a>
+                            <h3 class="u-text u-text-default u-text-2"><a
+                                    href="{% url 'mass-detail' cloth.id %}"> {{ cloth.name_of_cloth }}</a></h3>
+                            <p class="u-text u-text-3">{{ cloth.description }} </p>
+                            <h6 class="u-text u-text-default u-text-palette-2-base u-text-4">Новая цена</h6>
+                            <p class="u-text u-text-palette-2-base u-text-5">{{ cloth.price_with_discount }}&nbsp;</p>
+                            <h6 class="u-text u-text-6">Старая цена</h6>
+                            <p class="u-text u-text-7"> {{ cloth.price }} &nbsp;</p>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -224,40 +191,20 @@
         <div class="u-expanded-width u-list u-list-1">
             <div class="u-repeater u-repeater-1">
                 <div class="u-container-style u-list-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-container-layout-1">
-                        <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="900"
-                             data-image-height="1200" src="/{{ BASE_DIR }}cloth_image/{{ cloth.0.path_to_image.0 }}">
-                        <h3 class="u-text u-text-default u-text-2">{{ cloth.0.name_of_cloth }}</h3>
-                        <p class="u-text u-text-3">{{ cloth.0.description }}</p>
-                        <p class="u-text u-text-4"> {{ cloth.0.price }} руб&nbsp;</p>
-                    </div>
-                </div>
-                <div class="u-container-style u-list-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-container-layout-2">
-                        <img alt="" class="u-expanded-width u-image u-image-default u-image-2" data-image-width="900"
-                             data-image-height="1200" src="/{{ BASE_DIR }}cloth_image/{{ cloth.1.path_to_image.0 }}">
-                        <h3 class="u-text u-text-default u-text-5">{{ cloth.1.name_of_cloth }}</h3>
-                        <p class="u-text u-text-6"> {{ cloth.1.description }}</p>
-                        <p class="u-text u-text-7">{{ cloth.1.price }} руб</p>
-                    </div>
-                </div>
-                <div class="u-container-style u-list-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-container-layout-3">
-                        <img alt="" class="u-expanded-width u-image u-image-default u-image-3" data-image-width="246"
-                             data-image-height="328" src="/{{ BASE_DIR }}cloth_image/{{ cloth.2.path_to_image.0 }}">
-                        <h3 class="u-text u-text-default u-text-8">{{ cloth.2.name_of_cloth }}</h3>
-                        <p class="u-text u-text-9">{{ cloth.2.description }}</p>
-                        <p class="u-text u-text-10">{{ cloth.2.price }} руб</p>
-                    </div>
-                </div>
-                <div class="u-container-style u-list-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-container-layout-4">
-                        <img alt="" class="u-expanded-width u-image u-image-default u-image-4" data-image-width="900"
-                             data-image-height="1200" src="/{{ BASE_DIR }}cloth_image/{{ cloth.3.path_to_image.0 }}">
-                        <h3 class="u-text u-text-default u-text-11">{{ cloth.3.name_of_cloth }}&nbsp;</h3>
-                        <p class="u-text u-text-12">{{ cloth.3.description }}</p>
-                        <p class="u-text u-text-13">{{ cloth.3.price }} руб</p>
-                    </div>
+                    {% for cloth in cloth_without_discount %}
+                        <div class="u-container-layout u-similar-container u-container-layout-1">
+                            <a href="{% url 'mass-detail' cloth.id %}">
+                                <img alt="" class="u-expanded-width u-image u-image-default u-image-1"
+                                     data-image-width="900"
+                                     data-image-height="1200"
+                                     src="/{{ BASE_DIR }}cloth_image/{{ cloth.path_to_image.0 }}">
+                            </a>
+                            <h3 class="u-text u-text-default u-text-2"><a
+                                    href="{% url 'mass-detail' cloth.id %}"> {{ cloth.name_of_cloth }}</a></h3>
+                            <p class="u-text u-text-3">{{ cloth.description }} </p>
+                            <p class="u-text u-text-7"> {{ cloth.price }} рублей &nbsp;</p>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -280,7 +227,7 @@
         <p class="u-align-left u-text u-text-default u-text-11">Контакты</p>
         <p class="u-align-left u-text u-text-default u-text-12">
             <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-white u-btn-1"
-               data-href="О-нас.html">О компании</a>
+               data-href="{% url 'about' %}">О компании</a>
         </p>
         <p class="u-text u-text-default u-text-13">visel.shop@gmail.com</p>
         <p class="u-text u-text-default u-text-14">Улица Фучека, д.15, офис 11</p>

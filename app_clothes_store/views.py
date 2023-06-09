@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from .models import Cloth
-from django.shortcuts import render, redirect
-from django.views.generic import DetailView
-#from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import DetailView, ListView
+# from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
@@ -18,20 +18,19 @@ def load_name(request):
 
 def display_images(request):
     # getting all the objects of hotel.
-    cloth_with_discount = Cloth.objects.filter(price_with_discount__range=(1, 10000000))
-    cloth = Cloth.objects.filter(price_with_discount=0)
-    data = {"cloth_with_discount": cloth_with_discount, "cloth": cloth}
+    cloth_with_discount = Cloth.objects.filter(price_with_discount__range=(1, 10000000)).order_by('?')[:4]
+    cloth_without_discount = Cloth.objects.filter(price_with_discount=0)[:4]
+    data = {"cloth_with_discount": cloth_with_discount, "cloth_without_discount": cloth_without_discount}
     return render(request, 'Главная.html', context=data)
 
 
 class NewClothesStore(DetailView):
-    model = Cloth.objects.all()
-    templates_name = 'details_views.html'
-    context_object_name = 'mass'
+    model = Cloth
+    template_name = 'details_views.html'
+    context_object_name = 'cloth'
 
-
-def get_queryset(self):
-    return super().get_queryset().filter()
+    def get_queryset(self):
+        return super().get_queryset().filter()
 
 
 def about(request):

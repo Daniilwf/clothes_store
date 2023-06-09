@@ -1,16 +1,13 @@
 {% extends 'about.html' %}
 
-{% block title %} пост {% endblock %}
+    {% block title %} пост {% endblock %}
 
-
-
-{% block content %}
-
-    <div class="features">
-        <h1>{{ mass.title }}</h1>
-        <p>{{ mass.name_of_cloth }}</p>
-    </div>
-
-
-
-{% endblock %}
+    {% csrf_token %}
+    <fieldset>
+        {% block content %}
+            <legeng><h1>{{ cloth.id }}</h1></legeng>
+            <div class="features">
+                <p>{{ cloth.name_of_cloth }}</p>
+            </div>
+        {% endblock %}
+    </fieldset>
