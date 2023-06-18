@@ -1,6 +1,7 @@
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.conf import settings
 
 
 class Cloth(models.Model):
@@ -10,9 +11,9 @@ class Cloth(models.Model):
     price = models.IntegerField(blank=True, null=True)
 
     class Size(models.TextChoices):
-        LARGE = 'LARGE', _('Large')
-        MEDIUM = 'MEDIUM', _('Medium')
-        SMALL = 'SMALL', _('Small')
+        LARGE = 'L', _('Large')
+        MEDIUM = 'M', _('Medium')
+        SMALL = 'S', _('Small')
 
     size = models.TextField(max_length=6, choices=Size.choices)
     in_stock = models.IntegerField(blank=True, null=True)
@@ -20,3 +21,8 @@ class Cloth(models.Model):
 
     def __str__(self):
         return self.name_of_cloth
+
+
+class Favorite(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
+    cloth = models.ForeignKey(Cloth, on_delete=models.CASCADE, null=True)

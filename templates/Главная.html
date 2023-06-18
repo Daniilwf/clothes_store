@@ -43,11 +43,11 @@
         <a href="https://nicepage.com/website-templates"
            class="u-active-none u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-1">
             &nbsp;</a>
-        <p class="u-custom-font u-text u-text-default u-text-2"><span class="u-file-icon u-icon u-icon-1"><img
-                src="{% static 'images/10782810.png' %}" alt=""></span>&nbsp;
+        <p class="u-custom-font u-text u-text-default u-text-2"><a href="{% url 'CartDetail' %}"><span class="u-file-icon u-icon u-icon-1"><img
+                src="{% static 'images/10782810.png' %}" alt=""></span></a>&nbsp;
         </p>
-        <p class="u-custom-font u-text u-text-default u-text-3"><span class="u-file-icon u-icon u-icon-2"><img
-                src="{% static 'images/149451.png' %}" alt=""></span>
+        <p class="u-custom-font u-text u-text-default u-text-3"><a href="{% url 'login' %}"><span class="u-file-icon u-icon u-icon-2"><img
+                src="{% static 'images/149451.png' %}" alt=""></span></a>
         </p>
         <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
             <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -70,7 +70,7 @@
                 <ul class="u-nav u-unstyled u-nav-1">
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-grey-90 u-text-hover-palette-2-base"
-                            href="{% url 'load_name' %}" style="padding: 10px 62px;">Главная</a>
+                            href="{% url 'main' %}" style="padding: 10px 62px;">Главная</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-grey-90 u-text-hover-palette-2-base"
@@ -78,11 +78,11 @@
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-grey-90 u-text-hover-palette-2-base"
-                            href="скидки.html" style="padding: 10px 62px;">Скидки</a>
+                            href="{% url 'discounts' %}" style="padding: 10px 62px;">Скидки</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-grey-90 u-text-hover-palette-2-base"
-                            href="Ассортимент.html" style="padding: 10px 62px;">Ассортимент</a>
+                            href="{% url 'assortment' %}" style="padding: 10px 62px;">Ассортимент</a>
                     </li>
                 </ul>
             </div>
@@ -98,7 +98,7 @@
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="скидки.html">Скидки</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Ассортимент.html">Ассортимент</a>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'assortment' %}">Ассортимент</a>
                             </li>
                         </ul>
                     </div>
@@ -106,10 +106,10 @@
                 <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
             </div>
         </nav>
-        <p class="u-custom-font u-text u-text-default u-text-4"><span class="u-icon u-icon-3"><svg class="u-svg-content"
+        <p class="u-custom-font u-text u-text-default u-text-4"><a href="{% url 'favorites' %}"><span class="u-icon u-icon-3"><svg class="u-svg-content"
                                                                                                    viewBox="0 0 51.997 51.997"
                                                                                                    x="0px" y="0px"
-                                                                                                   style="width: 1em; height: 1em;"><g><path
+                                                                                                   style="width: 1em; height: 1em; color:black;"><g><path
                 d="M51.911,16.242C51.152,7.888,45.239,1.827,37.839,1.827c-4.93,0-9.444,2.653-11.984,6.905
 		c-2.517-4.307-6.846-6.906-11.697-6.906c-7.399,0-13.313,6.061-14.071,14.415c-0.06,0.369-0.306,2.311,0.442,5.478
 		c1.078,4.568,3.568,8.723,7.199,12.013l18.115,16.439l18.426-16.438c3.631-3.291,6.121-7.445,7.199-12.014
@@ -117,7 +117,7 @@
 		c-3.331-3.018-5.611-6.818-6.596-10.99c-0.708-2.997-0.417-4.69-0.416-4.701l0.015-0.101C2.725,9.139,7.806,3.826,14.158,3.826
 		c4.687,0,8.813,2.88,10.771,7.515l0.921,2.183l0.921-2.183c1.927-4.564,6.271-7.514,11.069-7.514
 		c6.351,0,11.433,5.313,12.096,12.727C49.938,16.57,50.229,18.264,49.521,21.261z"></path>
-</g></svg></span>&nbsp;
+        </g></svg></span></a>&nbsp;
         </p>
     </div>
 </header>
@@ -136,7 +136,7 @@
                             <p class="u-align-left u-text u-text-default u-text-2">Десятки новых и стильных дизайнов,
                                 которые стали популярными этой весной. Не пропустите культовую коллекцию 2023 года</p>
                             <p class="u-align-left u-text u-text-default u-text-3">from Visel</p>
-                            <a href="Ассортимент.html"
+                            <a href="{% url 'assortment' %}"
                                class="u-border-4 u-border-custom-color-1 u-border-hover-custom-color-1 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-none u-radius-50 u-btn-1">Заказать</a>
                             <a class="u-active-none u-align-left u-btn u-button-style u-hover-none u-none u-text-active-palette-5-base u-text-hover-palette-5-base u-btn-2"><span
                                     class="u-icon u-text-palette-5-base"><svg class="u-svg-content"
@@ -160,8 +160,8 @@
         </h3>
         <div class="u-expanded-width u-list u-list-1">
             <div class="u-repeater u-repeater-1">
-                <div class="u-container-style u-list-item u-repeater-item">
-                    {% for cloth in cloth_with_discount %}
+                {% for cloth in cloth_with_discount %}
+                    <div class="u-container-style u-list-item u-repeater-item">
                         <div class="u-container-layout u-similar-container u-container-layout-1"><a
                                 href="{% url 'mass-detail' cloth.id %}">
                             <img alt="" class="u-expanded-width u-image u-image-default u-image-1"
@@ -176,8 +176,9 @@
                             <h6 class="u-text u-text-6">Старая цена</h6>
                             <p class="u-text u-text-7"> {{ cloth.price }} &nbsp;</p>
                         </div>
-                    {% endfor %}
-                </div>
+
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -190,8 +191,9 @@
         </h3>
         <div class="u-expanded-width u-list u-list-1">
             <div class="u-repeater u-repeater-1">
-                <div class="u-container-style u-list-item u-repeater-item">
-                    {% for cloth in cloth_without_discount %}
+                {% for cloth in cloth_without_discount %}
+                    <div class="u-container-style u-list-item u-repeater-item">
+
                         <div class="u-container-layout u-similar-container u-container-layout-1">
                             <a href="{% url 'mass-detail' cloth.id %}">
                                 <img alt="" class="u-expanded-width u-image u-image-default u-image-1"
@@ -204,8 +206,9 @@
                             <p class="u-text u-text-3">{{ cloth.description }} </p>
                             <p class="u-text u-text-7"> {{ cloth.price }} рублей &nbsp;</p>
                         </div>
-                    {% endfor %}
-                </div>
+
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

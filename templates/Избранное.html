@@ -4,11 +4,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="">
+    <meta name="keywords" content="Популярные товары">
     <meta name="description" content="">
-    <title>О нас</title>
+    <title>Популярное</title>
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
-    <link rel="stylesheet" href="{% static 'css/О-нас.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/Популярное.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="{% static 'js/jquery-1.9.1.min.js' %}" defer=""></script>
     <script class="u-script" type="text/javascript" src="{% static 'js/nicepage.js' %}" defer=""></script>
     <meta name="generator" content="Nicepage 5.10.4, nicepage.com">
@@ -30,9 +30,9 @@
     <meta name="theme-color" content="#478ac9">
     <meta name="twitter:site" content="@">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="О нас">
+    <meta name="twitter:title" content="Популярное">
     <meta name="twitter:description" content="">
-    <meta property="og:title" content="О нас">
+    <meta property="og:title" content="Популярное">
     <meta property="og:type" content="website">
     <meta data-intl-tel-input-cdn-path="intlTelInput/">
 </head>
@@ -45,7 +45,7 @@
             &nbsp;</a>
         <p class="u-custom-font u-text u-text-default u-text-2"><a href="{% url 'CartDetail' %}"><span
                 class="u-file-icon u-icon u-icon-1"><img
-                src="{% static 'images/10782810.png' %}" alt=""></span></a>&nbsp;
+                src="{% static 'images/10782810.png' %}" alt=""></span>&nbsp;</a>
         </p>
         <p class="u-custom-font u-text u-text-default u-text-3"><a href="{% url 'login' %}"><span
                 class="u-file-icon u-icon u-icon-2"><img
@@ -111,7 +111,7 @@
                 class="u-icon u-icon-3"><svg class="u-svg-content"
                                              viewBox="0 0 51.997 51.997"
                                              x="0px" y="0px"
-                                             style="width: 1em; height: 1em; color:black;"><g><path
+                                             style="width: 1em; height: 1em; color: black;"><g><path
                 d="M51.911,16.242C51.152,7.888,45.239,1.827,37.839,1.827c-4.93,0-9.444,2.653-11.984,6.905
 		c-2.517-4.307-6.846-6.906-11.697-6.906c-7.399,0-13.313,6.061-14.071,14.415c-0.06,0.369-0.306,2.311,0.442,5.478
 		c1.078,4.568,3.568,8.723,7.199,12.013l18.115,16.439l18.426-16.438c3.631-3.291,6.121-7.445,7.199-12.014
@@ -123,27 +123,40 @@
         </p>
     </div>
 </header>
-<section class="u-clearfix u-section-1" id="sec-1b27">
+<section class="u-clearfix u-section-1" id="sec-0742">
     <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-border-2 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
-        <h3 class="u-text u-text-default u-text-1">О компании</h3>
-        <p class="u-text u-text-default u-text-2"> Visel - Онлайн-магазин одежды и обуви для женщин и мужчин,
-            исключительно на просторах интернета. Выбирайте и заказывайте товары в один клик!</p>
-        <img class="u-image u-image-default u-image-1"
-             src="{% static 'images/237fad47-46f8-aad5-d214-3c5e7e2302d3.jpg' %}" alt=""
-             data-image-width="945" data-image-height="630"><span
-            class="u-border-2 u-border-palette-1-base u-file-icon u-icon u-icon-circle u-text-custom-color-1 u-icon-1"><img
-            src="{% static 'images/10818781-73a89eb6.png' %}" alt=""></span><span
-            class="u-border-2 u-border-palette-1-base u-file-icon u-icon u-icon-circle u-text-custom-color-1 u-icon-2"><img
-            src="{% static 'images/10893932-40e0676b.png' %}" alt=""></span><span
-            class="u-border-2 u-border-palette-1-base u-file-icon u-icon u-icon-circle u-text-custom-color-1 u-icon-3"><img
-            src="{% static 'images/9356319-21731030.png' %}" alt=""></span><span
-            class="u-border-2 u-border-palette-1-base u-file-icon u-icon u-icon-circle u-text-custom-color-1 u-icon-4"><img
-            src="{% static 'images/793707-0e2a5872.png' %}" alt=""></span>
-        <p class="u-align-left u-text u-text-default u-text-3">100% гарантия</p>
-        <p class="u-align-left u-text u-text-default u-text-4">Бесплатная доставка</p>
-        <p class="u-align-left u-text u-text-default u-text-5">Онлайн оплата</p>
-        <p class="u-align-left u-text u-text-default u-text-6">Выгодные цены</p>
+        <h2 class="u-text u-text-custom-color-1 u-text-default u-text-1">Избранные товары</h2>
+        <div class="u-align-left u-expanded-width u-list u-list-1">
+            <div class="u-repeater u-repeater-1">
+            {% if all_clothes is not None %}
+                {% for cloth_fav in all_clothes %}
+                    {% with cloth=cloth_fav.cloth %}
+                    <div class="u-container-style u-list-item u-repeater-item">
+                        <div class="u-container-layout u-similar-container u-container-layout-1">
+                            <a href="{% url 'mass-detail' cloth.id %}">
+                                <img alt="" class="u-expanded-width u-image u-image-default u-image-1"
+                                     data-image-width="246"
+                                     data-image-height="328"
+                                     src="/{{ BASE_DIR }}cloth_image/{{ cloth.path_to_image.0 }}">
+                                <h3 class="u-text u-text-default u-text-2"
+                                    style="color:black;">{{ cloth.name_of_cloth }}</h3></a>
+                            <p class="u-text u-text-3"> {{ cloth.description }}</p>
+                            {% if cloth.price_with_discount != 0 %}
+                                <h6 class="u-text u-text-default u-text-palette-2-base u-text-4">Новая цена</h6>
+                                <p class="u-text u-text-palette-2-base u-text-5">{{ cloth.price_with_discount }}&nbsp;</p>
+                                <h6 class="u-text u-text-6">Старая цена</h6>
+                                <p class="u-text u-text-7"> {{ cloth.price }}&nbsp;</p>
+                            {% else %}
+                                <h6 class="u-text u-text-default u-text-palette-2-base u-text-4">Цена</h6>
+                                <p class="u-text u-text-palette-2-base u-text-5">{{ cloth.price }}&nbsp;</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endwith %}
+                {% endfor %}
+            {% endif %}
+            </div>
+        </div>
     </div>
 </section>
 
@@ -163,7 +176,7 @@
         <p class="u-align-left u-text u-text-default u-text-11">Контакты</p>
         <p class="u-align-left u-text u-text-default u-text-12">
             <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-white u-btn-1"
-               data-href="{% url 'about' %}">О компании</a>
+               data-href="О-нас.html">О компании</a>
         </p>
         <p class="u-text u-text-default u-text-13">visel.shop@gmail.com</p>
         <p class="u-text u-text-default u-text-14">Улица Фучека, д.15, офис 11</p>

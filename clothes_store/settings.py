@@ -32,6 +32,8 @@ SECRET_KEY = 'django-insecure-s+gt+ug07y51_k6pvq#wi9+w^jbhgr*#%s3%$(tqaji8emgal(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CART_SESSION_ID = 'cart'
+
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -73,6 +75,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.contrib.messages.context_processors.messages',
+                'app_clothes_store.context_processors.cart',
             ],
         },
     },

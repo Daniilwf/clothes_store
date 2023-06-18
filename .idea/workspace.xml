@@ -4,10 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="592ad12d-9507-4d12-b648-eefcd9430cc0" name="Changes" comment="">
+    <list default="true" id="592ad12d-9507-4d12-b648-eefcd9430cc0" name="Changes" comment="Fix personal page for cloth">
+      <change afterPath="$PROJECT_DIR$/app_clothes_store/cart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_clothes_store/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/baselogin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Избранное.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/clothes_store.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/clothes_store.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_clothes_store/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_clothes_store/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_clothes_store/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_clothes_store/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_clothes_store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_clothes_store/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_clothes_store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_clothes_store/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clothes_store/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/clothes_store/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/details_views.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/details_views.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/image.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/image.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Ассортимент.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Ассортимент.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Главная.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Главная.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/О-нас.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/О-нас.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Популярное.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/скидки.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/скидки.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,20 +58,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "beautify",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;beautify&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Honor\PycharmProjects\clothes_store\app_clothes_store\static\css" />
@@ -69,21 +90,62 @@
       <option name="presentableId" value="Default" />
       <updated>1682983763261</updated>
       <workItem from="1685789641771" duration="6561000" />
+      <workItem from="1686207136946" duration="61541000" />
+      <workItem from="1687089371430" duration="851000" />
     </task>
+    <task id="LOCAL-00001" summary="Fix personal page for cloth">
+      <created>1686342499302</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686342499302</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix personal page for cloth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix personal page for cloth" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/clothes_store/settings.py</url>
-          <line>117</line>
+          <line>121</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app_clothes_store/views.py</url>
+          <line>114</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/clothes_store$views.coverage" NAME="views Coverage Results" MODIFIED="1686920000660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app_clothes_store" />
+    <SUITE FILE_PATH="coverage/clothes_store$manage.coverage" NAME="manage Coverage Results" MODIFIED="1686919785722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
