@@ -1,10 +1,13 @@
 from django.http import HttpResponse
-from .models import Cloth
-from django.shortcuts import render, redirect
+from django.views.decorators.http import require_POST
+
+from .cart import Cart
+from .models import Cloth, Favorite
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import DetailView
-#from django.contrib.auth.forms import UserCreationForm
-from .forms import UserRegisterForm
-from django.contrib.auth import authenticate
+# from django.contrib.auth.forms import UserCreationForm
+from .forms import UserRegisterForm, CartAddProductForm
+from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -16,26 +19,35 @@ def load_name(request):
     return HttpResponse(output)
 
 
-def display_images(request):
+def main(request):
     # getting all the objects of hotel.
-    allimages = Cloth.objects.all()
-    print(allimages)
-    data = {"Cloth": allimages}
-    return render(request, 'image.html', context=data)
+    cloth_with_discount = Cloth.objects.exclude(price_with_discount=0).order_by('?')[:4]
+    cloth_without_discount = Cloth.objects.filter(price_with_discount=0).order_by('?')[:4]
+    data = {"cloth_with_discount": cloth_with_discount, "cloth_without_discount": cloth_without_discount}
+    return render(request, 'Главная.html', context=data)
 
 
 class NewClothesStore(DetailView):
-    model = Cloth.objects.all()
-    templates_name = 'details_views.html'
-    context_object_name = 'mass'
+    model = Cloth
+    template_name = 'товар.html'
+    context_object_name = 'cloth'
 
+    def get_queryset(self):
+        return super().get_queryset().filter()
 
-def get_queryset(self):
-    return super().get_queryset().filter()
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        context['cart_product_form'] = CartAddProductForm
+        return context
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'О-нас.html')
+
+
+def discounts(request):
+    cloth_with_discount = Cloth.objects.exclude(price_with_discount=0).order_by('?')
+    return render(request, 'скидки.html', {"cloth_with_discount": cloth_with_discount})
 
 
 def contact(request):
@@ -66,7 +78,7 @@ def register(request):
         form = UserRegisterForm(request.POST)
         email = request.POST.get('email')
         if User.objects.filter(email=email).exists():
-            messages.error(request, 'Пользователь с єтим адресом уже зарегестрирован!')
+            messages.error(request, 'Пользователь с этим адресом уже зарегестрирован!')
         else:
             if form.is_valid():
                 ins = form.save()
@@ -88,6 +100,63 @@ def register(request):
     return render(request, 'register.html', context)
 
 
-
 def login(request):
     return render(request, 'login.html')
+
+
+def assortment(request):
+    all_clothes = Cloth.objects.all()
+    form = CartAddProductForm()
+    return render(request, 'Ассортимент.html', {"all_clothes": all_clothes, "cart_product_form": form})
+
+
+@require_POST
+def cart_add(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Cloth, id=product_id)
+    form = CartAddProductForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(product=product, quantity=cd['quantity'],
+                 update_quantity=cd['update'])
+    return redirect('CartDetail')
+
+
+def cart_remove(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Cloth, id=product_id)
+    cart.remove(product)
+    return redirect('CartDetail')
+
+
+def cart_detail(request):
+    cart = Cart(request)
+    for item in cart:
+        item['update_quantity_form'] = CartAddProductForm(
+            initial={
+                'quantity': item['quantity'],
+                'update': True
+            })
+    return render(request, 'корзина.html', {'cart': cart})
+
+
+def output_favorites(request):
+    if request.user.is_authenticated:
+        favorites = Favorite.objects.filter(user=request.user)
+    else:
+        favorites = None
+    return render(request, 'Избранное.html', {'all_clothes': favorites})
+
+
+def add_to_favorite(request, cloth_id):
+    cloth = Cloth.objects.get(id=cloth_id)
+    favorite, created = Favorite.objects.get_or_create(user=request.user, cloth=cloth)
+    return redirect('mass-detail', pk=cloth_id)
+
+
+def delete_from_favorite(request, cloth_id):
+    cloth = Cloth.objects.get(id=cloth_id)
+    favorite = Favorite.objects.filter(user=request.user, cloth=cloth).first()
+    if favorite is not None:
+        favorite.delete()
+    return redirect('mass-detail', pk=cloth_id)
